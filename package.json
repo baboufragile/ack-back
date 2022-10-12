@@ -5,9 +5,10 @@
   "main": "plugin.js",
   "type": "module",
   "dependencies": {
+    "basic-ftp": "^5.0.2",
     "fastify": "^4.8.1",
-    "ftp": "^0.3.10",
     "nodemon": "^2.0.20",
+    "ssh2-sftp-client": "^9.0.4",
     "xmlbuilder": "^15.1.1"
   },
   "scripts": {

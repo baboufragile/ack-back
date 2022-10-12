@@ -1,6 +1,7 @@
 import fs from "fs";
 
 import builder from 'xmlbuilder';
+import {sendWithSsh} from "./ftp";
 
 export function XmlCreator(mySecondVar, myThirdVar, myJson){
     let xml = builder.create('root')
@@ -15,9 +16,10 @@ export function XmlCreator(mySecondVar, myThirdVar, myJson){
 }
 
 export const makeFile=(request,reply)=>{
-    const {mySecondVar, myThirdVar, myJson} = request.body
+    const {mySecondVar, myThirdVar, myJson,host,} = request.body
     try{
-        fs.writeFileSync("test.xml", XmlCreator(mySecondVar, myThirdVar, myJson));
+        fs.writeFileSync("ack/test.xml", XmlCreator(mySecondVar, myThirdVar, myJson))
+        sendWithSsh()
         reply.send(true)
     }catch (e){
         console.log("Error makeFile",e)
