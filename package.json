@@ -1,0 +1,19 @@
+{
+  "name": "back",
+  "version": "1.0.0",
+  "description": "",
+  "main": "plugin.js",
+  "type": "module",
+  "dependencies": {
+    "fastify": "^4.8.1",
+    "ftp": "^0.3.10",
+    "nodemon": "^2.0.20",
+    "xmlbuilder": "^15.1.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve": "nodemon plugin.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
