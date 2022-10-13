@@ -3,26 +3,27 @@ import fs from "fs";
 
 let sftp = new Client();
 
-export async function sendWithSsh(host,user,password,timestamp,isDelivery,remoteFile){
+export async function sendWithSsh(vmAddress,user,password,timestamp,isDelivery,remoteFile){
     const localPath = "/ack/"+timestamp+".ack";
     if (isDelivery){
         sftp.connect({
-            host: host,
+            host: vmAddress,
             port: '22',
-            username: user,
+            username: "delivery",
             privateKey: fs.readFileSync('/delivery/delivery.ppk')
         }).then((data) => {
             console.log(data, 'the data info');
             sftp.fastPut(localPath, remoteFile);
+            sftp.c
             return sftp.list('/pathname');
         }).catch(err => {
             console.log(err, 'catch error');
         });
     }else{
         sftp.connect({
-            host: host,
+            host: vmAddress,
             port: '22',
-            username: user,
+            username: "itesoft",
             password: password
         }).then((data) => {
             console.log(data, 'the data info');
