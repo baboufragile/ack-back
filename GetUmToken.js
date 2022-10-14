@@ -1,13 +1,13 @@
-import {JwtHelper} from "JwtHelper.js";
-import {HttpRequest} from "HttpRequest.js";
+import {JwtHelper} from "./JwtHelper.js";
+import {HttpRequest} from "./HttpRequest.js";
 import fs from 'fs';
 import jsrsasign from 'jsrsasign';
 import EnvService from "./EnvService.js";
-import {UM} from "Constant.js";
+import {UM} from "./Constant.js";
 import jwt from "jsonwebtoken";
 import path from "path";
 import {fileURLToPath} from 'url';
-import Logger from "Logger.js";
+import Logger from "./Logger.js";
 
 const logger = Logger.getLogger('src/application/connector/UserManagerService.js');
 
@@ -207,7 +207,7 @@ export default class UserManagerService {
      * @return {string} UM URL
      * @private
      */
-    static getUmBackend = (umUrl) => {
+    static #getUmBackend = (umUrl) => {
         return EnvService.get('UM_URL', umUrl);
     }
 

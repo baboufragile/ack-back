@@ -1,14 +1,14 @@
 import {makeFile} from "./function.js";
-import Fastify from'fastify';
+import fastify from 'fastify';
 
-const fastify = Fastify()
+const server = fastify()
 // Declare a route
-fastify.post('/', makeFile)
+server.post('/', makeFile)
 
 // Run the server!
 const start = async () => {
     try {
-        await fastify.listen(3000)
+        await server.server.listen(3000)
     } catch (err) {
         fastify.log.error(err)
         process.exit(1)

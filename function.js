@@ -1,7 +1,7 @@
 import fs from "fs";
 
 import builder from 'xmlbuilder';
-import {sendWithSsh} from "./ftp";
+import {sendWithSsh} from "./ftp.js";
 import UserManagerService from "./GetUmToken.js";
 import axios from "axios";
 
